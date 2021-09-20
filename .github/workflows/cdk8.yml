@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  build:
+    name: Test on cdk with Python
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: install node.js for cdk
+      run: |
+        npm install -g aws-cdk
+    - name: install aws cli
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin --update
+    - name: install python
+      run: |
+        sudo apt-get update
+        sudo apt-get install python3.9
+    - name: Create project directory
+      run: |
+          mkdir cdkworkshop && cd cdkworkshop
+          cdk init sample-app --language python
+    - name: Activating the environment
+      run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+    - name: Install the required packages
+      run: |
+          cd cdkworkshop
+          sudo pip install -r requirements.txt
+    - name: cdk ls
+      run: |
+          cdk ls 
