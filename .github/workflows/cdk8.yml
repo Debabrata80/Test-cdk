@@ -45,4 +45,5 @@ jobs:
     - name: cdk ls
       run: |
           cd cdkworkshop
+          source .venv/bin/activate
           cdk ls 
