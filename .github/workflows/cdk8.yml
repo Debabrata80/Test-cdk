@@ -44,4 +44,5 @@ jobs:
           sudo pip install -r requirements.txt
     - name: cdk ls
       run: |
+          cd cdkworkshop
           cdk ls 
