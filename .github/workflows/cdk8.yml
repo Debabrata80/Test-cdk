@@ -37,8 +37,8 @@ jobs:
     - name: Activating the environment
       run: |
           cd cdkworkshop
-          python -m pip install -r requirements.txt
+          python3 -m pip install -r requirements.txt
           python3 -m venv .venv
           source .venv/bin/activate
-          cdk ls 
+           
 
