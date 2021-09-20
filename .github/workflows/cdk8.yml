@@ -36,11 +36,9 @@ jobs:
           cdk init sample-app --language python
     - name: Activating the environment
       run: |
-          python3 -m venv .venv
-          source .venv/bin/activate
-    - name: Install the required packages
-      run: |
           cd cdkworkshop
           sudo pip install -r requirements.txt
+          python3 -m venv .venv
+          source .venv/bin/activate
           cdk ls 
 
