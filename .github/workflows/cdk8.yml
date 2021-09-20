@@ -47,8 +47,6 @@ jobs:
           pip install aws_cdk.aws_sns_subscriptions
 
           cdk ls
-    - name: cdk synth
-      run: |
-            cdk synth
+          cdk synth
            
 
