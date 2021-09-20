@@ -42,9 +42,5 @@ jobs:
       run: |
           cd cdkworkshop
           sudo pip install -r requirements.txt
-    - name: cdk ls
-      run: |
-          cd cdkworkshop
-          source .venv/bin/activate
-          sudo pip install -r requirements.txt
           cdk ls 
+
